@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.section1{
+    background-image: url('../../public/ImageAssets/camerawallpaper.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    color: var(--color1);
+}
+
+.signin-container{
+    z-index: 11;
+    position: absolute;
+    right: -50%;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(255, 255, 255,0.6);
+    transition: right 0.5s ease-out;
+}
+
+.signin-container.active{
+    right: 0;
+    transition: right 0.5s ease-out;
+}

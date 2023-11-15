@@ -1,21 +1,30 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path');
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/Routes");
 const cookieParser = require("cookie-parser");
 
 const app = express();
+const PORT = 4000;
 
-app.listen(4000, (err) => {
+//mongoString from .env file
+require('dotenv').config(); // Load environment variables from .env file
+
+const mongoURI = process.env.MONGODB_STRING || 'localhost:27017/fotoflask';
+
+app.listen(PORT, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log("Server Started Successfully.");
+    console.log("Server Started Successfully." + PORT);
   }
 });
+ 
+app.use(cors({ origin: "http://localhost:3010", credentials: true }));
 
 mongoose
-  .connect("mongodb+srv://poojyanth2004:projectfotoflask@cluster0.q3pe61c.mongodb.net/fotoflask?retryWrites=true&w=majority", {
+  .connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -26,13 +35,8 @@ mongoose
     console.log(err.message);
   });
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+module.exports = mongoose;
+
 app.use(cookieParser());
 
 app.use(express.json());

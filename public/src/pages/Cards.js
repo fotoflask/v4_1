@@ -3,10 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import LogoutButton from "../Components/LogoutButton";
+// import sessionUtils from "../middleware/sessionUtils";
 
 export default function Cards() {
+
+  // ##
   const navigate = useNavigate();
+
   const [cookies, setCookie, removeCookie] = useCookies([]);
+
   useEffect(() => {
     const verifyUser = async () => {
       if (!cookies.jwt) {
@@ -31,15 +37,13 @@ export default function Cards() {
     verifyUser();
   }, [cookies, navigate, removeCookie]);
 
-  const logOut = () => {
-    removeCookie("jwt");
-    navigate("/login");
-  };
+  // ##
+
   return (
     <>
       <div className="private">
         <h1>Super Secret Page</h1>
-        <button onClick={logOut}>Log out</button>
+        <LogoutButton />
       </div>
       <ToastContainer />
     </>

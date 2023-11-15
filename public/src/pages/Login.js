@@ -6,18 +6,22 @@ import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
   const [cookies] = useCookies([]);
+
   const navigate = useNavigate();
   useEffect(() => {
-    if (cookies.jwt) {
+    if (cookies.jwt !== undefined) {
+      console.log("login"); 
       navigate("/");
     }
   }, [cookies, navigate]);
 
   const [values, setValues] = useState({ email: "", password: "" });
+
   const generateError = (error) =>
     toast.error(error, {
       position: "bottom-right",
     });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

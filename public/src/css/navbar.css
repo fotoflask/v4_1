@@ -1,0 +1,42 @@
+.nav2{
+    position: sticky;
+}
+
+nav{
+    background-color: #000;
+    color: #fff;
+    padding: 1vw;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #000;
+    z-index: 10;
+    position: absolute;
+    width: 98vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height:5vh;
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #000;
+}
+
+nav a:hover{
+    background-color: #fff;
+    color: #000;
+}
+

@@ -1,5 +1,11 @@
-const User = require("../model/Model");
+const User = require("../model/UserModel");
+const UserDetail = require("../model/UserDetailModel");
 const jwt = require("jsonwebtoken");
+const multer = require('multer');
+const postmodel = require("../model/PostModel");
+const mongoose = require("../index");
+const Datemod = require("../model/Date");
+
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
@@ -38,6 +44,7 @@ module.exports.register = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await User.create({ email, password });
+    await UserDetail.create({ email, name: "a", phone: "b", address: "c"});
     const token = createToken(user._id);
 
     res.cookie("jwt", token, {
@@ -64,5 +71,76 @@ module.exports.login = async (req, res) => {
   } catch (err) {
     const errors = handleErrors(err);
     res.json({ errors, status: false });
+  }
+};
+
+module.exports.homepageposts = async (req, res) => {
+  try {
+    const posts = await postmodel.aggregate([
+        {
+            $lookup: {
+                from: 'UserDetails',
+                localField: 'duserId',
+                foreignField: 'duserId',
+                as: 'userdetails'
+            }
+        },
+        {
+            $match: {
+                $or: [
+                    {dusername: {$in: homepage_following}},
+                    {duserId: req.session.userId}
+                ]
+            }
+        },
+        {
+            $project: {
+                _id: 1,
+                postid: 1,
+                Date: 1,
+                Picture: 1,
+                Description_of_post: 1,
+                Tag: 1,
+                likes_number: 1,
+                likes: 1,
+                comments: 1,
+                comments_number: 1,
+                Shares: 1,
+                'userdetails.dusername': 1,
+                'userdetails.dprofilename': 1,
+                'userdetails.dprofilepic': 1
+            }
+        },
+        {
+            $sort: { Date: -1 }
+        },
+        {
+            $limit: 50
+        }
+    ]);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports.getPosts = async (req, res) => {
+  console.log("getPosts" );
+  try{
+    const posts =  await postmodel.find({}).sort({Date:-1}).limit(50);
+    res.json(posts);
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+
+module.exports.getPost = async (req, res) => {
+  const postid = req.params.postid;
+
+  try {
+    const post = await postmodel.findOne({ postid });
+    
+  } catch (err) {
+    console.log(err);
   }
 };

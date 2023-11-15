@@ -1,0 +1,90 @@
+.HomepageMain{
+}
+
+.HomepageMainLeft{
+    height: 90vh;
+    border: 1px solid black;
+    width: 20vw;
+    position: fixed;
+    left: 0;
+}
+
+.HomepageMainRight{
+    height: 90vh;
+    border: 1px solid black;
+    width: 20vw;
+    position: fixed;
+    right: 0;
+}
+
+.HomepageMainMiddle{
+    min-height: 90vh;
+    border: 1px solid black;
+    width: 58vw;
+    margin: 0 1px;
+    position: relative;
+    left: 21vw;
+}
+
+.postContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.post{
+    height: 80vh;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 10vw;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #000;
+
+}
+
+.postTop{
+    display: flex;
+    flex-direction: row;
+}
+
+.postProfileImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.postCenter{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.postImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.postBottom{
+    display: flex;
+    flex-direction: row;
+}
+
+.postBottomLeft{
+    display: flex;
+    flex-direction: row;
+}
+
+.likeIcon{
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+.postBottomRight{
+    display: flex;
+    flex-direction: row;
+}
