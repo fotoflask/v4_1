@@ -3,11 +3,11 @@ import axios from "axios";
 import "../css/Homepage.css";
 import Navbar2 from "../Components/Navbar2";
 import HomepagePost from "../Components/HomepagePost";
+import HomePagePostLoading from "../Components/HomepagePostLoading";
 
-
-export default function HomePage(){
-    
-    const [items, setItems] = useState([]); // [{}
+export default function HomePage() {
+    const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // Loading state
     const url = "http://localhost:4000/getposts";
 
     useEffect(() => {
@@ -21,30 +21,35 @@ export default function HomePage(){
 
     return (
         <div className="HomePage">
-            {/* Include LeftNavbar component */}
-            {/* <LeftNavbar /> */}
-            
-            {/* Include Top Navbar */}
             <Navbar2 />
-            
             <div className="HomepageMain">
-                <div className="HomepageMainLeft">
-                </div>
+                <div className="HomepageMainLeft"></div>
                 <div className="HomepageMainMiddle">
                     <div className="postContainer">
-                        
-                        <HomepagePost username="username" caption="caption" imageUrl="./ImageAssets/camerawallpaper.jpg" timestamp="10:20:30" likes={5} comments={10} profilepic="./logo192.png" userid="1" postid="2" /> 
-                        <HomepagePost username="username2" caption="caption" imageUrl="./ImageAssets/camerawallpaper.jpg" timestamp="10:20:40" likes={5} comments={10} profilepic="./logo192.png" userid="1" postid="1" />         
-
-                        {items.map((item) => (
-                            
-                        <HomepagePost username={item.username} caption={item.caption} imageUrl={'./PostImages/'+item.Picture} timestamp={item.timestamp} likes={item.likes} comments={item.comments} profilepic={item.profilepic} userid={item.userid} postid={item.postid} />
-                        ))}
-
+                        {isLoading ? ( // Show loading animation if isLoading is true
+                            <>
+                            <HomePagePostLoading />
+                            <HomePagePostLoading />
+                            </>
+                        ) : (
+                            items.map((item) => (
+                                <HomepagePost
+                                    key={item._id}
+                                    username={item.username}
+                                    caption={item.caption}
+                                    imageUrl={"./PostImages/" + item.Picture}
+                                    timestamp={item.timestamp}
+                                    likes={item.likes}
+                                    comments={item.comments}
+                                    profilepic={item.profilepic}
+                                    userid={item.userid}
+                                    postid={item._id}
+                                />
+                            ))
+                        )}
                     </div>
                 </div>
-                <div className="HomepageMainRight"> 
-                </div>
+                <div className="HomepageMainRight"></div>
             </div>
         </div>
     );
