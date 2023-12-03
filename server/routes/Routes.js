@@ -33,6 +33,6 @@ router.post('/createpost',upload.single('single_input'),(req,res)=>{
 })
 
 router.get("/getposts", getPosts);
-router.get("/post:postid", getPost);
+router.get("/post/:postid", getPost);
 
 module.exports = router; 

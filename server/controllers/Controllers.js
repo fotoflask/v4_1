@@ -127,6 +127,7 @@ module.exports.getPosts = async (req, res) => {
   console.log("getPosts" );
   try{
     const posts =  await postmodel.find({}).sort({Date:-1}).limit(50);
+    console.log(posts)
     res.json(posts);
   }
   catch(err){
@@ -137,9 +138,13 @@ module.exports.getPosts = async (req, res) => {
 module.exports.getPost = async (req, res) => {
   const postid = req.params.postid;
 
+  console.log("getPost" + postid);
+
+
   try {
-    const post = await postmodel.findOne({ postid });
-    
+    const post = await postmodel.findOne({_id: postid });
+    console.log(post);
+    res.json(post);
   } catch (err) {
     console.log(err);
   }
