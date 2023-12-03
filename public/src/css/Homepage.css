@@ -1,48 +1,51 @@
-.HomepageMain{
+/* Add these styles at the end of your existing CSS file */
+
+.HomePage {
+  /* Styles for the entire homepage if needed */
 }
 
-.HomepageMainLeft{
-    height: 90vh;
-    border: 1px solid black;
-    width: 20vw;
-    position: fixed;
-    left: 0;
+.HomepageMain {
+  display: flex;
+  /* Add other styles for HomepageMain if needed */
 }
 
-.HomepageMainRight{
-    height: 90vh;
-    border: 1px solid black;
-    width: 20vw;
-    position: fixed;
-    right: 0;
+.HomepageMainLeft {
+  /* Styles for the left section */
 }
 
-.HomepageMainMiddle{
-    min-height: 90vh;
-    border: 1px solid black;
-    width: 58vw;
-    margin: 0 1px;
-    position: relative;
-    left: 21vw;
+
+.HomepageMainRight {
+  height: 90vh;
+  border: 1px solid black;
+  width: 20vw;
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align items to the end (right) of the container */
 }
 
-.postContainer{
-    display: flex;
-    flex-direction: column;
+.button {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.post{
-    height: 80vh;
-    width: inherit;
-    display: flex;
-    flex-direction: column;
-    margin: 1vh 10vw;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px #000;
-
+.HomepageMainMiddle {
+  min-height: 90vh;
+  border: 1px solid black;
+  width: 58vw;
+  margin: 0 1px;
+  position: relative;
+  left: 21vw;
 }
 
+<<<<<<< HEAD
 .postTop{
     display: flex;
     height: 10%;
@@ -51,48 +54,77 @@
     align-content: center;
     align-items: center;
     justify-content: flex-start;
+=======
+.postContainer {
+  display: flex;
+  flex-direction: column;
+>>>>>>> a16a9b1 (navbar changes abhiram)
 }
 
-.postProfileImg{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 10px;
+/* Add your existing post styles here */
+
+.post {
+  height: 80vh;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 1vh 10vw;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #000;
 }
 
-.postCenter{
-    width: 100%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
+.postTop {
+  display: flex;
+  flex-direction: row;
 }
 
-.postImg{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.postProfileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
 }
 
+<<<<<<< HEAD
 .postBottom{
     display: flex;
     flex-direction: row;
     height: 15%;
+=======
+.postCenter {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+>>>>>>> a16a9b1 (navbar changes abhiram)
 }
 
-.postBottomLeft{
-    display: flex;
-    flex-direction: row;
+.postImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.likeIcon{
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
+.postBottom {
+  display: flex;
+  flex-direction: row;
 }
 
-.postBottomRight{
-    display: flex;
-    flex-direction: row;
+.postBottomLeft {
+  display: flex;
+  flex-direction: row;
+}
+
+.likeIcon {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+.postBottomRight {
+  display: flex;
+  flex-direction: row;
 }
 
 .profilephoto{

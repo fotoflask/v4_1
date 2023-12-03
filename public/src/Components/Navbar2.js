@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState } from "react";
-import '../css/navbar.css';
-import Logout from "./LogoutButton";
+import React, { useState } from "react";
+import '../css/navbar.css';  // Import your navbar styles
+// import Logout from "./LogoutButton";
 import { Link } from "react-router-dom";
 import MyComponent from "./CreatePost";
 
 export default function Navbar2() {
-
     const [createPostbox, setCreatePostbox] = useState(false);
 
     function handleCreatePostButtonClick(){
@@ -16,23 +13,32 @@ export default function Navbar2() {
 
     return (
         <>
-            <nav className="navbar1 nav2">
-                    <div className="navbar1-logo">
-                        <i className="fab fa-typo3" />
-                        <p>Fotoflask</p>
-                    </div>
-                    <ul className="navbar1-menu">
-                        <li>
-                            {/* create post button with plus icon */}
-                            <button id="createpostbutton" onClick={handleCreatePostButtonClick}>
-                                <i className="fas fa-plus-circle" />
-                            </button>
-                        </li>
-                    </ul>
-                    <Logout />
+            <nav className="fotoflask-navbar">
+                <div className="fotoflask-navbar-logo">
+                    <i className="fab fa-fotoflask" />
+                    <p>fotoflask</p>
+                </div>
+                <ul className="fotoflask-navbar-menu">
+                    {/* Shapes/icons for Friends, Explore, Posts, and Settings */}
+                    <li><i className="fas fa-user-friends"></i></li>
+                    <li><i className="fas fa-binoculars"></i></li>
+                    <li><i className="fas fa-pencil-alt"></i></li>
+                    <li><i className="fas fa-cogs"></i></li>
+                    {/* Search bar in the middle */}
+                    <li className="navbar-search-bar">
+                        <input type="text" placeholder="Search fotoflask" />
+                    </li>
+                    {/* create post button with plus icon */}
+                    <li>
+                        <button id="createpostbutton" onClick={handleCreatePostButtonClick}>
+                            <i className="fas fa-plus-circle" />
+                        </button>
+                    </li>
+                </ul>
+                {/* <Logout /> */}
             </nav>
 
-            {createPostbox === true ? <MyComponent setCreatePost={setCreatePostbox} />: <></>}
+            {createPostbox === true ? <MyComponent setCreatePost={setCreatePostbox} /> : <></>}
         </>
     );
-    } 
+}

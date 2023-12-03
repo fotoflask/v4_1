@@ -1,0 +1,30 @@
+/* Add your styles for the left navbar and main content */
+.left-navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .left-navbar ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .left-navbar li {
+    margin-bottom: 10px;
+  }
+  
+  .left-navbar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .left-navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    margin-left: 150px; /* Adjust margin based on your left navbar width */
+    padding: 10px;
+  }
+  

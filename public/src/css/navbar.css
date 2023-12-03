@@ -1,8 +1,6 @@
-.nav2{
-    position: sticky;
-}
+/* Add your navbar styles in this file */
 
-nav{
+.navbar1 {
     background-color: #000;
     color: #fff;
     padding: 1vw;
@@ -16,27 +14,85 @@ nav{
     left: 0;
     right: 0;
     bottom: 0;
-    height:5vh;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between; /* Align items to the right and left edges */
+    align-items: center; /* Align items vertically at the center */
+}
+
+.navbar1-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar1-logo p {
+    margin-left: 10px;
+}
+
+.navbar1-menu {
     display: flex;
     flex-direction: row;
 }
 
-nav ul{
-    display: flex;
-    flex-direction: row;
+.navbar1-menu li {
+    list-style: none;
+    margin: 0 10px;
 }
 
-nav a{
+/* Your existing navbar styles */
+.fotoflask-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2a2e35; /* fotoflask's blue color */
     color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    margin: 10px;
+  }
+  
+  .fotoflask-navbar-logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  .fotoflask-navbar-logo i {
+    margin-right: 10px;
+  }
+  
+  .fotoflask-navbar-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .fotoflask-navbar-menu li {
+    margin-right: 20px;
+  }
+  
+  /* Style for search bar */
+  .navbar-search-bar {
+    margin: 0 10px;
+  }
+  
+  .navbar-search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+  }
+  
+  /* Style for create post button */
+  #createpostbutton {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px #000;
-}
-
-nav a:hover{
-    background-color: #fff;
-    color: #000;
-}
-
+    cursor: pointer;
+  }
+  
+  /* Style for Font Awesome icons */
+  .navbar-menu i {
+    font-size: 20px;
+  }
+  
