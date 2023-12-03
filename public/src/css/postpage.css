@@ -1,6 +1,14 @@
 .PostPageMain{
     width: 100%;
     height: 90vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.divider{
+    width: 1px;
+    height: 100%;
+    background-color: #000000;
 }
 
 .PostArea{
@@ -15,4 +23,16 @@
 .postImage{
     width: inherit;
     margin: auto;
+}
+
+.PostContent{
+    width: 30%;
+    height: calc(90vh - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 5px; */
+    margin: 5px;
+    background: whitesmoke;
 }

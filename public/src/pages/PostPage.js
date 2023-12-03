@@ -26,7 +26,12 @@ export default function PostPage(){
                 <div className="PostArea">
                     <img className="postImage" src={'../../PostImages/'+item.Picture} alt="PostImage" />
                 </div>
-                <div className="PostDetails"></div>
+                <div className="divider"></div>
+                <div className="PostContent">
+                    <div className="PostDescription"></div>
+                    <div className="Comments"></div>
+                    <div className="PostOptions"></div>
+                </div>
             </div>
         </div>
     )

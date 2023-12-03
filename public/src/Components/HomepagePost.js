@@ -1,14 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function HomepagePost({username, caption, imageUrl, timestamp, likes, comments, profilepic, userid, postid}) {
     return (
         <div className="post" id={postid}>
             <div className="postTop">
-            <div className="postTopLeft">
-                <img className="postProfileImg" src={profilepic} alt="" />
-                <span className="postUsername"> {username} </span>
-                <span className="postDate">{timestamp}</span>
-            </div>
+                <div className="postTopLeft">
+                    <img className="postProfileImg" src={profilepic} alt="" />
+                    <span className="postUsername"> {username} </span>
+                    <span className="postDate">{timestamp}</span>
+                </div>
+                <div className="postRight">
+                    <Link to={"/post/"+postid}> Go to Post </Link>
+                </div>
             </div>
             <div className="postCenter">
                 <span className="postText">
